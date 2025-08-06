@@ -11,6 +11,7 @@
 		function checkForm() {
 			if(document.productForm.quantity.value.length == 0){
 				alert ("수량을 입력해주세요");
+				document.productForm.quantity.focus();
 				return false;
 			}
 			
