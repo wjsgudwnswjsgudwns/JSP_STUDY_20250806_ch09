@@ -16,6 +16,8 @@
 	
 	ArrayList<ProductListDto> cart = (ArrayList<ProductListDto>) session.getAttribute("cart");
 	
+	request.setAttribute("cart", cart);
+	
 	if (cart == null) {
 		out.println("장바구니가 비어 있습니다. <br>");	
 	}
@@ -30,9 +32,9 @@
 			<th>색 상</th>
 			<th>수 량</th>
 		</tr>
-		<c:forEach var="productDto" items="${cart}" varStatus="status">
+		<c:forEach var="productDto" items="${cart}" varStatus="status"> <!-- varStatus="status" 현재상태 -->
 			<tr>
-				<td>${status.count}</td>
+				<td>${status.count}</td> <!-- 1부터 시작해서 for문이 돌때마다 1씩 증가함. ex)count++ -->
 				<td>${productDto.product}</td>
 				<td>${productDto.color}</td>
 				<td>${productDto.quantity}</td>
