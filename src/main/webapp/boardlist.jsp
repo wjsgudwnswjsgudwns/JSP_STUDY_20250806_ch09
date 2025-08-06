@@ -8,6 +8,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<style type="text/css">
+	table {
+	width: 800px;
+	border-collapse: collapse;
+	}
+	th, td {
+	border: 1px solid; #dddddd;
+	padding: 10px;
+	text-align: center;
+	}
+	th {
+	background-color: #f5f5f5;
+	}
+</style>
+
 <title> 자유 게시판</title>
 </head>
 <body>
@@ -28,7 +44,7 @@
 		
 	%>
 	<h2>자유 게시판</h2>
-	<table border="1" cellspacing="0" cellpadding="0">
+	<table>
 		<tr>
 			<th>No.</th>
 			<th>제목</th>
@@ -39,7 +55,7 @@
 		<c:forEach var="boardDto" items="${boardList}">
 			<tr>
 				<td>${boardDto.bnum}</td>
-				<td>${boardDto.btitle}</td>
+				<td><a href="#">${boardDto.btitle}</a></td>
 				<td>${boardDto.bwriter}</td>
 				<td>${boardDto.bdate}</td>
 			</tr>
