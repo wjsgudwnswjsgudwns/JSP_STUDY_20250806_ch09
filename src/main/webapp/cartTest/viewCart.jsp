@@ -19,8 +19,6 @@
 	request.setAttribute("cart", cart);
 	
 	%>
-	<h2>장 바 구 니</h2>
-	
 	<c:choose>
 	
 	<c:when test="${cart==null}">
@@ -28,6 +26,8 @@
 	</c:when>
 	
 	<c:otherwise>
+	
+	<h2>장 바 구 니</h2>
 	
 	<table>
 		<tr>
