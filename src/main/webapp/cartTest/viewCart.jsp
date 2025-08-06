@@ -18,13 +18,17 @@
 	
 	request.setAttribute("cart", cart);
 	
-	if (cart == null) {
-		out.println("장바구니가 비어 있습니다. <br>");	
-	}
-	
-	
 	%>
 	<h2>장 바 구 니</h2>
+	
+	<c:choose>
+	
+	<c:when test="${cart==null}">
+		<h2>장바구니가 비었습니다.</h2>
+	</c:when>
+	
+	<c:otherwise>
+	
 	<table>
 		<tr>
 			<th>번 호</th>
@@ -41,5 +45,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	</c:otherwise>
+	
+	</c:choose>
 </body>
 </html>
