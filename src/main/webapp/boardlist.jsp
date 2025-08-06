@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
 		boardList.add(new BoardDto(2, "감사해요","개똥이","2025-08-06"));
 		boardList.add(new BoardDto(3, "잘있어요","소똥이","2025-08-06"));
 		boardList.add(new BoardDto(4, "다시 만나요","말똥이","2025-08-06"));
-		boardList.add(new BoardDto(5, "길가다가 100원 주움","양똥이","2025-08-06"));
+		boardList.add(new BoardDto(5, "길가다가 5000원 주움. 편의점 가서 육개장 컵라면 사먹어야지. 후식으로 아이스크림 하나도 먹어야지.","양똥이","2025-08-06"));
 		
 		request.setAttribute("boardList", boardList);
 		
@@ -55,7 +56,19 @@
 		<c:forEach var="boardDto" items="${boardList}">
 			<tr>
 				<td>${boardDto.bnum}</td>
-				<td><a href="#">${boardDto.btitle}</a></td>
+				
+				<td>
+					<c:choose>
+						<c:when test="${fn:length(boardDto.btitle) > 30}">
+							<a href="#">${fn:substring(boardDto.btitle, 0 ,40)}...</a>
+						</c:when>
+						
+						<c:otherwise>
+							${boardDto.btitle}
+						</c:otherwise>
+					</c:choose>
+				</td>
+				
 				<td>${boardDto.bwriter}</td>
 				<td>${boardDto.bdate}</td>
 			</tr>
