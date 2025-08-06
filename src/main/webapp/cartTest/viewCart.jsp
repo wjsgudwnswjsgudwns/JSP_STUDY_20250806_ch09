@@ -49,5 +49,7 @@
 	</c:otherwise>
 	
 	</c:choose>
+	
+	<a href="productList.jsp">상품 더 보기</a><br>
 </body>
 </html>
