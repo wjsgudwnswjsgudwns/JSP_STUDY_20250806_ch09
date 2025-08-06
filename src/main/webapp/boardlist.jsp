@@ -58,6 +58,7 @@
 				<td>${boardDto.bnum}</td>
 				
 				<td>
+				<!-- 글 제목이 40자 이상일 때 40자 이상은 ... 표시 -->
 					<c:choose>
 						<c:when test="${fn:length(boardDto.btitle) > 30}">
 							<a href="#">${fn:substring(boardDto.btitle, 0 ,40)}...</a>
